@@ -1,0 +1,349 @@
+@font-face {
+  font-family: 'sans-serif';
+  font-style: normal;
+  font-weight: 400;
+  
+}
+
+* {
+    font-family: "sans-serif","Segoe UI",Arial,sans-serif; 
+    font-size: 15px;
+    font-weight:normal ;
+    
+}
+
+.selbox{
+    width: 70%;
+}
+/* Toggle Styles */
+
+.wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.wrapper.toggled {
+    padding-left: 250px;
+}
+
+.sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.wrapper.toggled .sidebar-wrapper {
+    width: 250px;
+}
+
+.page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+.wrapper.toggled .page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+        
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+
+
+
+.active {
+    color: black;
+    background-color: #f1efef;
+}
+@media(min-width:768px) {
+    .wrapper {
+        padding-left: 250px;
+    }
+
+    .wrapper.toggled {
+        padding-left: 0;
+    }
+
+    .sidebar-wrapper {
+        width: 250px;
+    }
+
+    .wrapper.toggled .sidebar-wrapper {
+        width: 0;
+    }
+
+    .page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    .wrapper.toggled .page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+
+
+
+
+/**
+*  TEst IES css
+*
+**/
+
+
+.divwrap{
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+.divwrap table {
+    margin: AUTO;
+    border: 0;
+
+    
+}
+.divwrap input{
+    border-radius: 4px;
+    border-color: #aaa;
+    padding: 0px 10px 0px 10px;
+    height:25px ;
+
+}
+
+input[type=button], input[type=submit]{
+    
+    
+}
+
+.divwrap td,.divwrap th,.divwrap tbody,.divwrap thead, .divwrap tfooter {
+    padding: 7px;
+    vertical-align: center !important;
+    
+    color: #000000;
+    border:#e2e2e2 solid 1px;    
+    
+}
+
+
+.divwrap td {
+    vertical-align: center !important;
+    
+    
+}
+
+.divwrap table tr:nth-child(odd) > td {
+    background-color: #f5f3eb !important;
+}
+
+.divwrap table tr:nth-child(even) > td {
+    background-color: #fbfaf7;
+}
+
+.divwrap table tr > td:nth-child(1) {
+    font-weight: bolder;
+    vertical-align: center ;
+    
+}
+
+.divwrap table td {
+    border-width: 1px 1px 1px 1px ; 
+    border-color: #e2e2e2;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+.divwrap table tr> td:nth-child(odd) {
+    /*border-right: 2px #e2e2e2 solid !important;*/
+}
+
+.divwrap table tr:nth-child(1) td {
+    background: linear-gradient(#f5f3eb,#e9e4d1) ;  
+     
+            
+}
+
+.divwrap td select{
+    -   width:50%;
+}
+
+
+.divwrap .header {
+    text-align: left;
+    font-weight: 22px;
+    font-size: 25px;
+    line-height: 2em;
+    margin: 0 0 0 0em;
+    padding: 0;
+    color: #7C6A4E;
+    width: 874px;
+    margin: 0.4em auto;
+}
+
+.divwrap .sub-header *, .divwrap .sub-header {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bolder;
+    color: black;
+    text-transform: uppercase;
+}
+
+
+
+/* Button Tube */
+.divwrap .clear{
+    clear: both;
+}
+
+.divwrap .percent100{width:100%;}
+.divwrap .off_black_bg{background:#666;font-weight:bold;}
+.divwrap .l_float{float:left;}
+.divwrap ul.btn_tube li{float:left;list-style:none;display:inline-block;}
+.divwrap ul.btn_tube li a
+{
+    position:relative;
+    text-decoration:none;
+    display:inline-block;
+    padding:10px 20px;
+    color:#fff;
+    font-weight:lighter;
+    border-left:#666 solid 0px;
+    background:transparent;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+      
+}
+.divwrap ul.btn_tube li:first-child a
+{
+     border-radius: 0px 0 0 0px;
+    -moz-border-radius: 0px 0 0 0px;
+    -webkit-border-radius: 0px 0 0 0px;
+    -khtml-border-radius: 0px 0 0 0px;
+}
+.divwrap ul.btn_tube li a:hover
+{
+    background: rgb(117, 117, 117) none repeat scroll 0% 0%;
+    -moz-transform: scale(1.051);
+    -o-transform: scale(1.051);
+    -webkit-transform: scale(1.051);
+    -moz-transform: scale(1.051);
+    -ms-transform: scale(1.051);
+    transform: scale(1.051);
+        
+}
+
+.divwrap .view
+{
+   margin:0 0 20px 0px;
+  /*  border-right:#ccc solid 1px;
+    border-top:#ccc solid 1px;
+    border-left:#ccc solid 1px;
+    border-bottom:#ccc solid 1px;  */
+    
+-moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+-webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+-khtml-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    
+}
+
+label.my-error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic;
+    font-weight: normal;
+
+}
+/*   form validation */
+form.cmxform label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic;
+    font-weight: normal;
+
+}
+div.error { display: none; }
+input {	border: 1px solid black; }
+input.checkbox { border: none }
+input:focus { border: 1px dotted black; }
+input.error { border: 1px dotted red; }
+form.cmxform .gray * { color: gray; }
+/* Loading image*/
+.loader {
+   
+    left: 0px;
+    top: 0px;
+    z-index: 9999;
+    display: none;
+    margin: 0 auto;
+    text-align: center;
+    
+    
+    /*opacity: .8;*/
+}
