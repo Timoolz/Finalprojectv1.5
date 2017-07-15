@@ -1,11 +1,8 @@
 <div class="divwrap">
 
 <?php
-    $user   = 'root';
-    $pass   = 'test';
-    $addr   = 'localhost';
-    $dbname = 'final';
-    
+
+    require_once 'creds/creds.php';
     require_once("dbscripts/dbconnection.php");
     
 

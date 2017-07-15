@@ -40,6 +40,7 @@ http://www.github.com/braunsg/manifold-impact-analytics
 ////////////////////////////////////////////////////////////////////////////////////////*/
 //Check if there is internet connection
 include_once('../functions/generalfunctions01.php');
+require_once '../creds/creds.php';
 
 if( !int_connection()){
     echo"<label class ='my-error'>No Internet Connection\t\t\t  </label>";
@@ -52,7 +53,7 @@ $lastName  = $_POST['lname'];
 
 
 
-$myapikey = '4a772b3dca4b3e2aaf4bd6dcf3a782e4';
+
 
 
 $nameArray = array(
@@ -117,7 +118,7 @@ foreach($nameArray as $nameData) {
 			CURLOPT_URL => $url,
 			CURLOPT_HTTPHEADER => array(
 					// Specify the API key -- replace with your own once registered
-					'X-ELS-APIKey: '.$myapikey,
+					'X-ELS-APIKey: '.MYAPIKEY1,
 					'Accept: application/json'
 				)
 		));

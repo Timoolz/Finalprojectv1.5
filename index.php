@@ -103,9 +103,9 @@
                             
                              //var_dump($_REQUEST);
                              $mapping = array(
-                                       'appointment'      => '/appointment',
-                                       'applications'         => '/applications',
-                                       'promotion'        => '/promotion',
+                                       'appointment'      => 'appointment',
+                                       'applications'         => 'applications',
+                                       'promotion'        => 'promotion',
                                        
                                        #....
                                     );

@@ -8,6 +8,12 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
+#My credentials and passwords
+
+*/creds
+*\creds
+
+
 # Windows Installer files
 *.cab
 *.msi

@@ -1,5 +1,6 @@
 
 <?php
+    require_once 'creds/creds.php';
     include_once('functions/generalfunctions01.php');
     include("classes/validateappointment.php"); 
     
@@ -92,11 +93,8 @@
         $publist = $appointment->eidvals;
     }
     
-    $user   = 'root';
-    $pass   = 'test';
-    $addr   = 'localhost';
-    $dbname = 'final';
-    
+
+    require_once 'creds/creds.php';
     require_once("dbscripts/dbconnection.php");
     
    
@@ -169,7 +167,7 @@
             if($res){
                 print "<pre>";
                     //print "<h3>     SIR THIS IS A TEST     </h3>";
-                    print "<h3>     Your application has been processed and approved          </h3>";
+                    print "<h3>     Your application is being processed you will be contacted shortly.     </h3>";
                     print "<br /><span> Name : ".$appointment->fullname."</span>";
                     print "<br /><span> Application Position : ".$appointment->appointmentpos."</span>";
                     print "<br /><span> Publication Score Attained : ".$appointment->pubscore."</span>";
@@ -198,6 +196,21 @@
                 $to = $appointment->emailaddress;
                 $subject = "Promotion Application";
                 
+                //$message = "
+//                <html>
+//                <head>
+//                <title>Covenant Unversity A&PC</title>
+//                </head>
+//                <body>
+//                <p>Dear ".$appointment->fullname."</p>
+//                Your promotion application for the position<b> ".$appointment->appointmentpos."</b> has been Approved. \n
+//                Your interview has been set for ".$appointment->getintdate().". Please do make yourself available. \n
+//                Please do not reply this message, any further information will be communicated to you. 
+//                
+//                </body>
+//                </html>
+//                ";
+
                 $message = "
                 <html>
                 <head>
@@ -205,8 +218,7 @@
                 </head>
                 <body>
                 <p>Dear ".$appointment->fullname."</p>
-                Your promotion application for the position<b> ".$appointment->appointmentpos."</b> has been Approved. \n
-                Your interview has been set for ".$appointment->getintdate().". Please do make yourself available. \n
+                Your promotion application for the position<b> ".$appointment->appointmentpos."</b> is being processed. \n
                 Please do not reply this message, any further information will be communicated to you. 
                 
                 </body>
@@ -226,8 +238,8 @@
                 $mail->SMTPSecure = "ssl";
                 $mail->SMTPAuth   = true;
                 $mail->isHtml();
-                $mail->Username   = "olamide.laleye@stu.cu.edu.ng";
-                $mail->Password   = "laleye123";
+                $mail->Username   = EMAILUSERNAME;
+                $mail->Password   = EMAILUSERPASS;
                 $mail->addReplyTo("olamide.laleye@stu.cu.edu.ng", "Laleye Olamide");
                 $mail->setFrom("olamide.laleye@stu.cu.edu.ng", "Laleye Olamide");
                 

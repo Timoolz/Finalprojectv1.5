@@ -34,6 +34,7 @@ http://www.github.com/braunsg/manifold-impact-analytics
 ////////////////////////////////////////////////////////////////////////////////////////*/
 //Check if there is internet connection
 include_once('../functions/generalfunctions01.php');
+require_once '../creds/creds.php';
 
 if( !int_connection()){
     echo"<label class ='my-error'>No Internet Connection\t\t\t  </label>";
@@ -50,7 +51,7 @@ $curincre    = $_POST['curincre'];
  
 
 
-$myapikey = '27b57a8b189fc2b9ce579db63eecebbd';
+
 
 //$publicationeid = '2-s2.0-'. $scopeid .'';
 $publicationtitle =  $scoptitle ;
@@ -124,7 +125,7 @@ foreach($eidArray as $eid) {
 			CURLOPT_URL => $url,
 			CURLOPT_HTTPHEADER => array(
 					// Specify the API key -- replace with your own once registered					
-					'X-ELS-APIKey: '. $myapikey ,
+					'X-ELS-APIKey: '. MYAPIKEY1 ,
 					'Accept: application/json'
 				)
 		));

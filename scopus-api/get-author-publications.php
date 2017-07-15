@@ -116,7 +116,7 @@ foreach($scopusIdArray as $scopusId) {
 			CURLOPT_URL => $url,
 			CURLOPT_HTTPHEADER => array(
 					// Specify the API key -- replace with your own once registered
-					'X-ELS-APIKey: '.$myapikey,
+					'X-ELS-APIKey: '.MYAPIKEY1,
 					'Accept: application/json'
 				)
 		));

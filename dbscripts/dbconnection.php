@@ -1,7 +1,7 @@
 <?php
 
         try{
-            $dbh = new PDO('mysql:host='.$addr.';dbname='.$dbname.';charset=utf8',$user, $pass);
+            $dbh = new PDO('mysql:host='.DBADDR.';dbname='.DBNAME.';charset=utf8',DBUSER, DBPASS);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
         }
