@@ -8,7 +8,7 @@
 
 
       try {
-            $sql = 'SELECT fullname , college, curposition, appposition, dateolp, dateoap, dateofint, publications
+            $sql = 'SELECT fullname , college, curposition, appposition, dateolp, dateoap, dateofint, publications, publications_url
                     FROM appointments
                     WHERE approval_status = 1 ';
             $sth = $dbh->prepare($sql);
@@ -76,21 +76,26 @@
                     echo"<td>".$tabledata['dateolp']."</td>";
                     echo"<td>".$tabledata['dateoap']."</td>";
                     echo"<td>".$tabledata['dateofint']."</td>";
-                    echo"<td><ul>";
+                    echo"<td><div class = 'pubdiv'><ul>";
                     
                     $puboccur = substr_count($tabledata['publications'],"__");
-                    //var_dump($puboccur);
+                    $puburloccur = substr_count($tabledata['publications_url'],"__"); 
                     $postest = 0;
+                    $posturltest = 0;
                     $checkstr = $tabledata['publications'];
-                    for ($i=1;$i<=$puboccur+1;$i++){//To loop through publications
+                    $checkurlstr = $tabledata['publications_url'];
+                    
+                    for ($i=1;$i<=$puboccur+1;$i++){//To loop through publications and publicaions url
                         
-                        if( ($x_pos = strpos($checkstr,"__")) !== FALSE )
+                        if(( ($x_pos = strpos($checkstr,"__")) !== FALSE ) &&( ($x_posurl = strpos($checkurlstr,"__")) !== FALSE ))
                             {
                                 
                                 $source_str = substr($checkstr,$postest, $x_pos);
+                                $sourceurl_str = substr($checkurlstr,$posturltest, $x_posurl);
                                 //var_dump($source_str);
-                                echo "<li>".$source_str."</li>";
+                                echo "<li><a href = '".$sourceurl_str."' target = '_blank'>".$source_str."</a></li>";
                                 $checkstr = substr($checkstr,$x_pos+2,strlen($checkstr));
+                                $checkurlstr = substr($checkurlstr,$x_posurl+2,strlen($checkurlstr));
                                 
                                 
                                 
@@ -98,9 +103,16 @@
                             
                             
                         }
-                    echo "</ul></td>";
+                        //var_dump($tabledata['publications_url']);
+                       
                     
-                    echo"<td>&nbsp</td>";
+                    
+                    
+                        
+                        
+                    echo "</ul></div></td>";
+                    
+                    //echo"<td>&nbsp</td>";
                     echo "</tr>";
                     
                     

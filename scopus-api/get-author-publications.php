@@ -42,8 +42,9 @@ $thisCount = 0;
 $continueCt = 0;
 $scopusIdCount = count($scopusIdArray);
 
-$pubarr = array();
-$keyy = 1;
+$pubarr    = array();
+$puburlarr = array();
+$keyy      = 1;
             $pubtypearr  = array();
             $scorarr = array();
             $totalpubscore = 0;
@@ -196,9 +197,13 @@ foreach($scopusIdArray as $scopusId) {
                      
                      
                      
-                     $realaffil = false;
+                     $realaffil        = false;
+                     
+                     // To get the various attributes of each publication
                      $pubtypearr[$key] = $pubInfo['subtype'];
-                     $pubarr[$key] = $pubInfo['dc:title'];
+                     $pubarr[$key]     = $pubInfo['dc:title'];
+                     $puburlarr[$key]  = $pubInfo['link'][2]['@href'];
+					
                      
                      if(isset($pubInfo['affiliation'])){
                         
@@ -226,11 +231,12 @@ foreach($scopusIdArray as $scopusId) {
                                 $scorarr[$key]   = 3 ; //Score if the publication exists
                                 $pubtypename = "Article ";
                             
-                                echo"<input type='hidden' name='pubeid".$key."' value='".$pubarr[$key]."'/>  \n";
+                               // echo"<input type='hidden' name='pubeid".$key."' value='".$pubarr[$key]."'/>  \n";
+//                                echo"<input type='hidden' name='puburl".$key."' value='".$puburlarr[$key]."'/>  \n";
                                 echo"<tr>
                                         <td>&nbsp;</td>
                                         <td> ".$keyy."</td>
-                                        <td> ".$pubarr[$key]."</td>
+                                        <td><a href='".$puburlarr[$key]."' target = '_blank'> ".$pubarr[$key]."</a></td>
                                         <td> ".$pubtypename."</td>
                                         <td> ".$scorarr[$key]."</td>
                                         
@@ -246,11 +252,13 @@ foreach($scopusIdArray as $scopusId) {
                                 $scorarr[$key]   = 3 ; //Score if the publication exists
                                 $pubtypename = "Review ";
                             
-                                echo"<input type='hidden' name='pubeid".$key."' value='".$pubarr[$key]."'/>  \n";
+                                //echo"<input type='hidden' name='pubeid".$key."' value='".$pubarr[$key]."'/>  \n";
+//                                echo"<input type='hidden' name='puburl".$key."' value='".$puburlarr[$key]."'/>  \n";
+                                
                                 echo"<tr>
                                         <td>&nbsp;</td>
                                         <td> ".$keyy."</td>
-                                        <td> ".$pubarr[$key]."</td>
+                                        <td><a href='".$puburlarr[$key]."' target = '_blank'> ".$pubarr[$key]."</a></td>
                                         <td> ".$pubtypename."</td>
                                         <td> ".$scorarr[$key]."</td>
                                         
@@ -268,11 +276,12 @@ foreach($scopusIdArray as $scopusId) {
                                     $scorarr[$key]   = 1 ; //Score if the publication exists
                                     $pubtypename = "Conference paper ";
                                 
-                                    echo"<input type='hidden' name='pubeid".$key."' value='".$pubarr[$key]."'/>  \n";
+                                    //echo"<input type='hidden' name='pubeid".$key."' value='".$pubarr[$key]."'/>  \n";
+//                                    echo"<input type='hidden' name='puburl".$key."' value='".$puburlarr[$key]."'/>  \n";
                                     echo"<tr>
                                          <td>&nbsp;</td>
                                          <td> ".$keyy."</td>
-                                         <td> ".$pubarr[$key]."</td>
+                                         <td><a href='".$puburlarr[$key]."' target = '_blank'> ".$pubarr[$key]."</a></td>
                                          <td> ".$pubtypename."</td>
                                          <td> ".$scorarr[$key]."</td>
                                         

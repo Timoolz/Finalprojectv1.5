@@ -29,7 +29,7 @@ class validation{
         
     }
     
-    function setappdetails($currpos,$apppos,$dateolp,$pubscore,$confscore,$pubeids = array()){
+    function setappdetails($currpos,$apppos,$dateolp,$pubscore,$confscore,$pubeids = array(),$puburls = array()){
         $this->currentpos = $currpos;
         $this->appointmentpos = $apppos;
         $this->dateolp = $dateolp;
@@ -37,6 +37,11 @@ class validation{
         $this->confscore = $confscore;
         foreach ($pubeids as $incre => $eid){
         $this->eidvals[$incre] = $eid;
+        
+        }
+        
+        foreach ($puburls as $incre1 => $eiid){
+        $this->urlvals[$incre1] = $eiid;
         
         }
     }

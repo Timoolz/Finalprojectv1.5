@@ -26,6 +26,7 @@
     
     // To get all publication eids
     $pubeid = array();
+   
     
     // To get all Conferences eids
     $conf = array();
@@ -79,7 +80,7 @@
     $appointment->eidvals='';
     $appointment->setperdetails($fullname,$emailad,$phoneno,$qualification,$colname);
     
-    $appointment->setappdetails($curposition,$appposition,$dateolp,$totalpubscore,$confcount,$pubarr);
+    $appointment->setappdetails($curposition,$appposition,$dateolp,$totalpubscore,$confcount,$pubarr,$puburlarr);
     $appointment->validate();
     
     $publst = '';
@@ -90,7 +91,19 @@
         }
     }
     else{
-        $publist = $appointment->eidvals;
+        $publst = $appointment->eidvals;
+    }
+    
+    // To g
+    $urllst = '';
+    if(is_Array($appointment->urlvals)){
+        foreach($appointment->urlvals as $llj){
+            $urllst .= $llj.'__';
+           
+        }
+    }
+    else{
+        $urllst = $appointment->urlvals;
     }
     
 
@@ -105,14 +118,14 @@
         try{
             
             $dbh->beginTransaction();
-            $sql ="INSERT INTO appointments (fullname, emailad, phoneno, college, curposition, appposition, dateolp, dateoap, publications, publication_score, approval_status, comments) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql ="INSERT INTO appointments (fullname, emailad, phoneno, college, curposition, appposition, dateolp, dateoap, publications, publications_url, publication_score, approval_status, comments) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $sth = $dbh->prepare($sql);
             
             
             
             
-            $res = $sth -> execute(array($appointment->fullname,$appointment->emailaddress,$appointment->phonenumber,$appointment->college,$appointment->currentpos,$appointment->appointmentpos,$appointment->dateolp,getcurrentdate(),$publst,$appointment->pubscore,0,$appointment->validateerror));
+            $res = $sth -> execute(array($appointment->fullname,$appointment->emailaddress,$appointment->phonenumber,$appointment->college,$appointment->currentpos,$appointment->appointmentpos,$appointment->dateolp,getcurrentdate(),$publst,$urllst,$appointment->pubscore,0,$appointment->validateerror));
            
             if($res){
                 
@@ -155,14 +168,14 @@
         try{
             
             $dbh->beginTransaction();
-            $sql ="INSERT INTO appointments (fullname, emailad, phoneno, college, curposition, appposition, dateolp, dateoap, publications, publication_score, approval_status, comments, dateofint) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql ="INSERT INTO appointments (fullname, emailad, phoneno, college, curposition, appposition, dateolp, dateoap, publications, publications_url, publication_score, approval_status, comments, dateofint) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $sth = $dbh->prepare($sql);
             
             
             
             
-            $res = $sth -> execute(array($appointment->fullname,$appointment->emailaddress,$appointment->phonenumber,$appointment->college,$appointment->currentpos,$appointment->appointmentpos,$appointment->dateolp,getcurrentdate(),$publst,$appointment->pubscore,1,'',$appointment->getintdate()));
+            $res = $sth -> execute(array($appointment->fullname,$appointment->emailaddress,$appointment->phonenumber,$appointment->college,$appointment->currentpos,$appointment->appointmentpos,$appointment->dateolp,getcurrentdate(),$publst,$urllst,$appointment->pubscore,1,'',$appointment->getintdate()));
            
             if($res){
                 print "<pre>";

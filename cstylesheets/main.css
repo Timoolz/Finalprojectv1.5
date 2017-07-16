@@ -28,7 +28,12 @@
 .wrapper.toggled {
     padding-left: 250px;
 }
-
+.pubdiv{
+    
+    height: 150px;
+    overflow-y: scroll;
+    
+}
 .sidebar-wrapper {
     z-index: 1000;
     position: fixed;
